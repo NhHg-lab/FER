@@ -37,12 +37,6 @@ const Navigation = () => {
                         Contact
                     </Link>
                     <Link
-                        to="/intro"
-                        className={`nav-link ${location.pathname === '/intro' ? 'active' : ''}`}
-                    >
-                        Intro
-                    </Link>
-                    <Link
                         to="/dashboard"
                         className={`nav-link ${location.pathname === '/dashboard' ? 'active' : ''}`}
                     >
@@ -53,18 +47,6 @@ const Navigation = () => {
                         className={`nav-link ${location.pathname === '/login' ? 'active' : ''}`}
                     >
                         Login
-                    </Link>
-                    <Link
-                        to="/seeder"
-                        className={`nav-link ${location.pathname === '/seeder' ? 'active' : ''}`}
-                    >
-                        Seeder
-                    </Link>
-                    <Link
-                        to="/lab6"
-                        className={`nav-link ${location.pathname === '/lab6' ? 'active' : ''}`}
-                    >
-                        Lab 6
                     </Link>
                 </div>
             </div>

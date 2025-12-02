@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import ListOfOrchids from '../data/ListOfOrchids';
+import { getOrchidImage } from '../utils/imageMapper';
 import ThemeToggle from './ThemeToggle';
 import Navigation from './Navigation';
 import './DetailPage.css';
@@ -37,7 +38,7 @@ const DetailPage = () => {
                     <div className="detail-content">
                         <div className="detail-image-section">
                             <img
-                                src={orchid.image}
+                                src={getOrchidImage(orchid)}
                                 alt={orchid.name}
                                 className="detail-image"
                             />

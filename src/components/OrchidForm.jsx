@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { addOrchid, updateOrchid, fetchOrchids } from '../redux/orchidsSlice';
+import { orchidImages, getOrchidImage } from '../utils/imageMapper';
 import Navigation from './Navigation';
 import './OrchidForm.css';
 
@@ -23,8 +24,7 @@ const orchidSchema = Yup.object().shape({
         .max(5, 'Rating must be between 0 and 5')
         .required('Rating is required'),
     image: Yup.string()
-        .url('Must be a valid URL')
-        .required('Image URL is required'),
+        .required('Image is required'),
 });
 
 function OrchidForm() {
@@ -175,17 +175,19 @@ function OrchidForm() {
                             </div>
 
                             <div className="form-group">
-                                <label htmlFor="image">Image URL *</label>
-                                <Field
-                                    type="text"
-                                    name="image"
-                                    placeholder="https://example.com/image.jpg"
-                                    className="form-input"
-                                />
+                                <label htmlFor="image">Select Image *</label>
+                                <Field as="select" name="image" className="form-input">
+                                    <option value="">Choose an orchid image...</option>
+                                    {Object.keys(orchidImages).map((key) => (
+                                        <option key={key} value={key}>
+                                            Orchid Image {key}
+                                        </option>
+                                    ))}
+                                </Field>
                                 <ErrorMessage name="image" component="div" className="error-message" />
                                 {values.image && (
                                     <div className="image-preview">
-                                        <img src={values.image} alt="Preview" />
+                                        <img src={orchidImages[values.image]} alt="Preview" />
                                     </div>
                                 )}
                             </div>

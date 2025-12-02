@@ -127,3 +127,53 @@
 .detail-link {
     background: #333;
 }
+
+/* CRUD Buttons for authenticated users */
+.card-crud-buttons {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+}
+
+.crud-btn {
+    flex: 1;
+    padding: 6px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    background: white;
+    color: #333;
+    transition: all 0.2s;
+}
+
+.crud-btn:hover {
+    background: #f5f5f5;
+}
+
+.crud-btn.edit-btn {
+    border-color: #4CAF50;
+    color: #4CAF50;
+}
+
+.crud-btn.edit-btn:hover {
+    background: #4CAF50;
+    color: white;
+}
+
+.crud-btn.delete-btn {
+    border-color: #f44336;
+    color: #f44336;
+}
+
+.crud-btn.delete-btn:hover {
+    background: #f44336;
+    color: white;
+}
+
+.crud-btn:active {
+    transform: scale(0.98);
+}

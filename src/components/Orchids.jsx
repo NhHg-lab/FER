@@ -65,7 +65,7 @@ const Orchids = () => {
                             eventKey="natural"
                             title={
                                 <span>
-                                    🌿 Natural <Badge bg="success" className="ms-1">{naturalOrchids.length}</Badge>
+                                    Natural <Badge bg="success" className="ms-1">{naturalOrchids.length}</Badge>
                                 </span>
                             }
                         >
@@ -76,7 +76,7 @@ const Orchids = () => {
                             eventKey="hybrid"
                             title={
                                 <span>
-                                    🧪 Hybrid <Badge bg="info" className="ms-1">{hybridOrchids.length}</Badge>
+                                    Hybrid <Badge bg="info" className="ms-1">{hybridOrchids.length}</Badge>
                                 </span>
                             }
                         >
@@ -87,7 +87,7 @@ const Orchids = () => {
                             eventKey="special"
                             title={
                                 <span>
-                                    ⭐ Special <Badge bg="warning" className="ms-1">{specialOrchids.length}</Badge>
+                                    Special <Badge bg="warning" className="ms-1">{specialOrchids.length}</Badge>
                                 </span>
                             }
                         >

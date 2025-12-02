@@ -1,12 +1,28 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteOrchid } from '../redux/orchidsSlice';
+import { getOrchidImage } from '../utils/imageMapper';
 import './OrchidCard.css';
 
 const OrchidCard = ({ orchid, onDetailClick }) => {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const { isAuthenticated } = useSelector((state) => state.auth);
+
+    const handleEdit = () => {
+        navigate(`/edit/${orchid.id}`);
+    };
+
+    const handleDelete = async () => {
+        if (window.confirm(`Are you sure you want to delete "${orchid.name}"?`)) {
+            await dispatch(deleteOrchid(orchid.id));
+        }
+    };
     return (
         <div className="orchid-card">
             <div className="orchid-image-container">
                 <img
-                    src={orchid.image}
+                    src={getOrchidImage(orchid)}
                     alt={orchid.name}
                     className="orchid-image"
                     loading="lazy"
@@ -60,6 +76,25 @@ const OrchidCard = ({ orchid, onDetailClick }) => {
                         Full Details
                     </Link>
                 </div>
+
+                {isAuthenticated && (
+                    <div className="card-crud-buttons">
+                        <button
+                            className="crud-btn edit-btn"
+                            onClick={handleEdit}
+                            title="Edit this orchid"
+                        >
+                            ✏️ Edit
+                        </button>
+                        <button
+                            className="crud-btn delete-btn"
+                            onClick={handleDelete}
+                            title="Delete this orchid"
+                        >
+                            🗑️ Delete
+                        </button>
+                    </div>
+                )}
             </div>
         </div>
     );

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchOrchids, deleteOrchid } from '../redux/orchidsSlice';
 import { useNavigate } from 'react-router-dom';
+import { getOrchidImage } from '../utils/imageMapper';
 import Navigation from './Navigation';
 import './Dashboard.css';
 
@@ -54,7 +55,7 @@ function Dashboard() {
             <Navigation />
             <div className="dashboard-content">
                 <div className="dashboard-header">
-                    <h1>🌺 Orchid Management Dashboard</h1>
+                    <h1 style={{ paddingTop: '50px' }}>🌺 Orchid Management Dashboard</h1>
                     <div className="dashboard-actions">
                         <input
                             type="text"
@@ -89,7 +90,7 @@ function Dashboard() {
                                 {filteredOrchids.map((orchid) => (
                                     <tr key={orchid.id}>
                                         <td>
-                                            <img src={orchid.image} alt={orchid.name} className="table-img" />
+                                            <img src={getOrchidImage(orchid)} alt={orchid.name} className="table-img" />
                                         </td>
                                         <td>{orchid.name}</td>
                                         <td>{orchid.origin}</td>

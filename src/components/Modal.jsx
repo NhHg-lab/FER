@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { getOrchidImage } from '../utils/imageMapper';
 import './Modal.css';
 
 const Modal = ({ isOpen, onClose, orchid }) => {
@@ -30,7 +31,7 @@ const Modal = ({ isOpen, onClose, orchid }) => {
                 <div className="modal-body">
                     <div className="modal-image-container">
                         <img
-                            src={orchid.image}
+                            src={getOrchidImage(orchid)}
                             alt={orchid.name}
                             className="modal-image"
                         />
